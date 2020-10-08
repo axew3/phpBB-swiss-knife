@@ -1,6 +1,8 @@
 # phpBB-swiss-knife
 Recovery tools for phpBB troubles (single file) 
 
+phpBB 3.2 > 3.3 >
+
 
 ## Tasks:
 

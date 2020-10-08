@@ -3,9 +3,9 @@ Recovery (single file) tools for phpBB troubles
 
 
 ## Tasks:
-### disable phpBB extensions (that maybe are causing errors)
-### create Super User account with a random password
-### update existent username with a new random password
+#### disable phpBB extensions (that maybe are causing errors)
+#### create Super User account with a random password
+#### update existent username with a new random password
 
 Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 

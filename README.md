@@ -13,9 +13,13 @@ Remove this file when finished: leaving this file in place, expose your phpBB bo
 ## Usage: 
 
  Download and unzip the file 
+ 
 **phpbb_swiss_knife.php**
+
  May rename the file into something else (not strictly required) (i.e.: mySecretFile.php)
+ 
  upload it to your Board's root (i.e.: www.mydomain.com/phpBB3/)
+ 
  Point your browser to i.e.:
  
  www.mydomain.com/phpBB3/phpbb_swiss_knife.php

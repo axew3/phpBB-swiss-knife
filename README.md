@@ -30,7 +30,7 @@ Remove this file when finished: leaving this file in place, expose your phpBB bo
  
  and follow instructions.
  
- Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
+#### Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 
 
  This script is free software. It comes without any warranty.

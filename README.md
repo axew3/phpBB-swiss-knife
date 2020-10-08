@@ -1,5 +1,5 @@
 # phpBB-swiss-knife
-Recovery (single file) tools for phpBB troubles
+Recovery tools for phpBB troubles (single file) 
 
 
 ## Tasks:
@@ -30,10 +30,9 @@ Remove this file when finished: leaving this file in place, expose your phpBB bo
  
  Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 
- *phpbb_swiss_knife Version 1.0.0 - axe70 2020
- *Version 1.0.0 - david63 2017
-
+ *phpbb_swiss_knife Version 1.0.0
 
  This script is free software. It comes without any warranty.
+ 
  license http://opensource.org/licenses/GPL-2.0 GNU General Public License v2.
 

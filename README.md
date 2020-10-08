@@ -7,7 +7,7 @@ Recovery (single file) tools for phpBB troubles
 ### create Super User account with a random password
 ### update existent username with a new random password
 
-*Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
+Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 
 ## Usage: 
 #### Download and unzip the file 

@@ -32,7 +32,6 @@ Remove this file when finished: leaving this file in place, expose your phpBB bo
  
  Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 
- *phpbb_swiss_knife Version 1.0.0
 
  This script is free software. It comes without any warranty.
  

@@ -10,7 +10,8 @@ Recovery (single file) tools for phpBB troubles
 *Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 
 ## Usage: 
-#### Download and unzip the file *phpbb_swiss_knife.php
+#### Download and unzip the file 
+*phpbb_swiss_knife.php
 #### May rename the file into something else (not strictly required) (i.e.: *mySecretFile.php)
 #### upload it to your Board's root (i.e.: www.mydomain.com/phpBB3/)
 #### Point your browser to i.e.: www.mydomain.com/phpBB3/phpbb_swiss_knife.php or to */mySecretFile.php (or whatever you renamed it) and follow instructions.

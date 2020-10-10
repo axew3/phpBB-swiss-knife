@@ -278,13 +278,9 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
    	$sql = "UPDATE ". USERS_TABLE. " 
 		SET user_password = '$rand_pass_hash' WHERE username = '" . $db->sql_escape($chk_change_user_pass) . "'";
 		$result = $db->sql_query($sql);
-		
-		$sql = "SELECT * 
-        FROM " . USERS_TABLE . " 
-        WHERE username = '" . $db->sql_escape($chk_change_user_pass) . "'";
-    $result = $db->sql_query($sql);   
+		$result = (int) $db->sql_affectedrows();  
 
-	if($result->num_rows > 0){
+	if($result > 0){
 		echo '<h3><span style="color:#BF0040">Username: </span> ' . $chk_change_user_pass . '<br /><span style="color:#BF0040">New Password:</span> '.$rand_pass.'</h3>
 		<h3>Delete this file now! Then login phpBB ACP with provided username/password.</h3>
 	  <h3>Note: each time page refresh, the password will change.</h3>';

@@ -278,7 +278,7 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
    	$sql = "UPDATE ". USERS_TABLE. " 
 		SET user_password = '$rand_pass_hash' WHERE username = '" . $db->sql_escape($chk_change_user_pass) . "'";
 		$result = $db->sql_query($sql);
-		print_r($result);exit;
+		
 		$sql = "SELECT * 
         FROM " . USERS_TABLE . " 
         WHERE username = '" . $db->sql_escape($chk_change_user_pass) . "'";

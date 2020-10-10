@@ -7,6 +7,7 @@
 *
 * Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 *
+
 * Usage: Download and unzip the file phpbb_swiss_knife.php
 * May rename the file into something else (not strictly required) (i.e.: mySecretFile.php)
 * upload it to your Board's root (i.e.: www.mydomain.com/phpBB3/)
@@ -16,6 +17,7 @@
 * phpbb_swiss_knife Version 1.0.0 - axe70 2020
 * Version 1.0.0 - david63 2017
 * Based on modisson.php - Oyabun1 2015
+* https://www.phpbb.com/support/docs/en/3.3/kb/article/disabling-all-extensions-at-once/
 *
 * This script is free software. It comes without any warranty.
 * license http://opensource.org/licenses/GPL-2.0 GNU General Public License v2.
@@ -167,10 +169,7 @@ echo '<style type="text/css">
 		background-color: #8B0000;
 	}
 
-</style>';
-
-echo '</head>';
-echo '<body>';
+</style></head><body>';
 
 echo'<h2 style="text-align:center">phpBB swiss knife</h2><h2 style="text-align:center">Results will display at the bottom of the page when the task has been completed</h2><h3>You can execute only one task per time</h3><br /><br />';
 
@@ -238,8 +237,7 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 		}
 		else
 		{
-			echo '<h3>No extensions found to disable</h3>';
-      echo '<h3><span style="color:#BF0040">Delete this file now!</span></h3>';
+			echo '<h3>No extensions found to disable</h3><h3><span style="color:#BF0040">Delete this file now!</span></h3>';
 		}
 
 		// Get count of extensions disabled
@@ -248,8 +246,8 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 		// Add disable action to the admin log
 		add_log('admin', $disabled_ext . ' extensions disabled');
 
-		echo '<h3>' . $disabled_ext . ' extensions have been disabled.<h3>';
-    echo '<h3><span style="color:#BF0040">Delete this file now!</span></h3>';
+		echo '<h3>'.$disabled_ext . '  extensions have been disabled
+    <h3><span style="color:#BF0040">Delete this file now!</span></h3>';
     
 	} elseif ($chk_create_SuperAdmin == 'Yes'){ // Create SuperAdmin
 		
@@ -269,9 +267,9 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 			VALUES ('0', '3', '5', '".$rand_suser."', '".$rand_suser_nice."', 0, '".$rand_pass_hash."', 'rand0-admin0@rand0.example0.you', 'en', 1, 1, 'AA0000', 1, '', '', '', '', '', 't', 'a', 't', 'd', '', '', '', '', '', '') ON DUPLICATE KEY UPDATE user_password = '$rand_pass_hash'";
     $db->sql_query($sql);
 	
-		echo '<h3><span style="color:#BF0040">Super Admin username:</span> ' . $rand_suser . '<br /><span style="color:#BF0040">Password:</span> '.$rand_pass.'</h3>';
-		echo '<h4><span style="color:#BF0040">Delete this file now!</span>. Then login phpBB ACP with provided credentials, then execute tasks into ACP. May remove this same user through another Super Admin user, when you have finished with your tasks.</h4>';
-	  echo '<h4>Note: each time page refresh, the password will change.</h4>';
+		echo '<h3><span style="color:#BF0040">Super Admin username:</span> ' . $rand_suser . '<br /><span style="color:#BF0040">Password:</span> '.$rand_pass.'
+		<h4><span style="color:#BF0040">Delete this file now!</span>. Then login phpBB ACP with provided credentials, then execute tasks into ACP. May remove this same user through another Super Admin user, when you have finished with your tasks.</h4>
+	  <h4>Note: each time page refresh, the password will change.</h4>';
 	
 	} elseif (!empty($chk_change_user_pass)){ // UPDATE username password
 		
@@ -296,9 +294,9 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
     $result = $db->sql_query($sql);   
 
 	if($result->num_rows > 0){
-		echo '<h3><span style="color:#BF0040">Username: </span> ' . $chk_change_user_pass . '<br /><span style="color:#BF0040">New Password:</span> '.$rand_pass.'</h3>';
-		echo '<h3>Delete this file now! Then login phpBB ACP with provided username/password.</h3>';
-	  echo '<h3>Note: each time page refresh, the password will change.</h3>';
+		echo '<h3><span style="color:#BF0040">Username: </span> ' . $chk_change_user_pass . '<br /><span style="color:#BF0040">New Password:</span> '.$rand_pass.'</h3>
+		<h3>Delete this file now! Then login phpBB ACP with provided username/password.</h3>
+	  <h3>Note: each time page refresh, the password will change.</h3>';
 	 } else {
 		echo '<h3>Username <span style="color:#BF0040">' . $chk_change_user_pass . '</span> do not exists';
 	}
@@ -312,9 +310,7 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 
 	
 	
-echo '<br /><br /><br />';
-echo '</body>';
-echo '</html>';
+echo '<br /><br /><br /></body></html>';
 
 
 // Get count of active extensions

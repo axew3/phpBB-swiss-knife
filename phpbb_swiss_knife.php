@@ -190,7 +190,7 @@ echo '<h3>Change the Password of an existent username</h3>';
 echo '<strong>Write/paste the username which you want to change password of, then click the Run button.</strong>';
 echo '<form action="' . basename(__FILE__) . '" method="post" onsubmit="return confirm(\'You are about to Change password for the provided username. \n Username and password will shown down here \n.\')">';
 echo '<input type="text" size="20" name="chkChangeUserPass"
-	value="" /> Change existent usernamem password&nbsp;&nbsp;';
+	value="" /> Change existent username password&nbsp;&nbsp;';
 echo '<p><button type="submit" class="button green";>Run</button></p>';
 echo '</form>';
 echo '<br />';

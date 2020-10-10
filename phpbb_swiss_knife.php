@@ -177,8 +177,8 @@ echo'<h2 style="text-align:center">phpBB swiss knife</h2><h2 style="text-align:c
 echo '<h3>Disable all extensions</h3>';
 echo '<strong>Check the selection box and click the Run button.';
 echo '<form action="' . basename(__FILE__) . '" method="post" onsubmit="return confirm(\'You are about to disable ' . $orig_ext_count . ' extensions. \n Make sure you first have a database backup. \n If you click OK there is no going back.\')">';
-echo '<label title="Disable '. $orig_ext_count . ' extensions"><input type="checkbox" name="chkExt"
-	value="Yes" />Disable '. $orig_ext_count . ' extensions&nbsp;</label>&nbsp;';
+echo '<input type="checkbox" name="chkExt"
+	value="Yes" />Disable '. $orig_ext_count . ' extensions&nbsp;';
 echo '<p><button type="submit" class="button green";>Run</button></p>';
 echo '</form>';
 echo '<br /><br />';
@@ -187,8 +187,8 @@ echo '<br /><br />';
 echo '<h3>Create a new founder Super Admin</h3>';
 echo '<strong>Check the selection box and click the Run button.</strong>';
 echo '<form action="' . basename(__FILE__) . '" method="post" onsubmit="return confirm(\'You are about to Create a new founder Super Admin. \n Username and password will shown down here \n.\')">';
-echo '<label title="Create a new founder SuperAdmin"><input type="checkbox" name="chkSuperAdmin"
-	value="Yes" />Create a new founder SuperAdmin&nbsp;</label>&nbsp;';
+echo '<input type="checkbox" name="chkSuperAdmin"
+	value="Yes" />Create a new founder SuperAdmin&nbsp;&nbsp;';
 echo '<p><button type="submit" class="button green";>Run</button></p>';
 echo '</form>';
 echo '<br /><br />';
@@ -198,8 +198,8 @@ echo '<br /><br />';
 echo '<h3>Change the Password of an existent username</h3>';
 echo '<strong>Write/paste the username which you want to change password of, then click the Run button.</strong>';
 echo '<form action="' . basename(__FILE__) . '" method="post" onsubmit="return confirm(\'You are about to Change password for the provided username. \n Username and password will shown down here \n.\')">';
-echo '<label title="Change the Password of existent username"><input type="text" size="20" name="chkChangeUserPass"
-	value="" />Change password of existent username&nbsp;</label>&nbsp;';
+echo '<input type="text" size="20" name="chkChangeUserPass"
+	value="" /> Change existent usernamem password&nbsp;&nbsp;';
 echo '<p><button type="submit" class="button green";>Run</button></p>';
 echo '</form>';
 echo '<br />';

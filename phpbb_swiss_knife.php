@@ -237,7 +237,7 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 		}
 		else
 		{
-			echo '<h3>No extensions found to disable</h3><h3><span style="color:#BF0040">Delete this file now!</span></h3>';
+			echo '<h3>No active extensions found </h3><h3><span style="color:#BF0040">Delete this file now!</span></h3>';
 		}
 
 		// Get count of extensions disabled

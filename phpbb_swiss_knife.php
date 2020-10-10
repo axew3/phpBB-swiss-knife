@@ -76,7 +76,7 @@ echo '<style type="text/css">
 		cursor: pointer;
 		background-color: #FFD700;
 		border-style: outset;
-		border-width; 1px;
+		border-width: 1px;
 		border-radius: 7px;
 		border-color: #808080;
 		font-size: 1.1em;
@@ -158,15 +158,6 @@ echo '<style type="text/css">
 
 	.green {
 		background-color: #228B22;
-	}
-
-	.remove_me {
-		color: #FFFFFF;
-		width: 560px;
-		margin: 2em auto 0;
-		padding: .5em;
-		font-size: 1.1em;
-		background-color: #8B0000;
 	}
 
 </style></head><body>';
@@ -287,7 +278,7 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
    	$sql = "UPDATE ". USERS_TABLE. " 
 		SET user_password = '$rand_pass_hash' WHERE username = '" . $db->sql_escape($chk_change_user_pass) . "'";
 		$result = $db->sql_query($sql);
-		
+		print_r($result);exit;
 		$sql = "SELECT * 
         FROM " . USERS_TABLE . " 
         WHERE username = '" . $db->sql_escape($chk_change_user_pass) . "'";

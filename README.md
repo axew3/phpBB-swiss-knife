@@ -8,6 +8,7 @@ phpBB 3.2 > 3.3 >
 #### disable phpBB extensions (that maybe are causing errors)
 #### create Super User account with a random password
 #### update existent username with a new random password
+#### reset cookie_domain and cookie_secure setting
 
 Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 

@@ -4,10 +4,10 @@
 * disable phpBB extensions (that maybe are causing errors)
 * create Super User account with a random password
 * update existent username with a new random password
+* reset cookie_domain and cookie_secure setting
 *
 * Remove this file when finished: leaving this file in place, expose your phpBB board to high security risks!
 *
-
 * Usage: Download and unzip the file phpbb_swiss_knife.php
 * May rename the file into something else (not strictly required) (i.e.: mySecretFile.php)
 * upload it to your Board's root (i.e.: www.mydomain.com/phpBB3/)
@@ -52,12 +52,10 @@ echo '<style type="text/css">
 		width: 600px;
 		margin: 2em auto 0;
 	}
-
 	form {
 		text-align: center;
 		line-height: 230%;
 	}
-
 	fieldset {
 		-moz-border-radius:7px;
 		border-radius: 7px;
@@ -67,11 +65,9 @@ echo '<style type="text/css">
 	h1, h2{
 	color:#BF0040;
 	}
-
 	h3 {
 		text-align: center;
 	}
-
 	label {
 		cursor: pointer;
 		background-color: #FFD700;
@@ -83,22 +79,18 @@ echo '<style type="text/css">
 		padding: 2px;
 		margin: 2px;
 	}
-
 	input[type="checkbox"]:disabled {
     	opacity:0;
 	}
-
 	input[type="checkbox"] {
 		cursor: pointer;
 	}
-
 	img.mid {
 		display: block;
 		margin-top: 1em;
 		margin-left: auto;
 		margin-right: auto
 	}
-
 	/* Buttons based on Pressable CSS Buttons by Joshua Hibbert */
 	.button {
 		background-image: -webkit-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,0%,.1));
@@ -128,11 +120,9 @@ echo '<style type="text/css">
 		text-decoration: none;
 		vertical-align: middle;
 	}
-
 	.button:hover {
 		outline: none;
 	}
-
 	.button:hover, .button:focus {
 		box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.25),
 					inset 0 2px 0 hsla(0,0%,100%,.1),
@@ -142,7 +132,6 @@ echo '<style type="text/css">
 					inset 0 0 0 3em hsla(0,0%,100%,.2),
 					0 .25em .25em hsla(0,0%,0%,.1);
 	}
-
 	.button:active {
 		box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.25),
 					inset 0 2px 0 hsla(0,0%,100%,.1),
@@ -155,11 +144,9 @@ echo '<style type="text/css">
 		outline: none;
 		padding-bottom: .5em;
 	}
-
 	.green {
 		background-color: #228B22;
 	}
-
 </style></head><body>';
 
 echo'<h2 style="text-align:center">phpBB swiss knife</h2><h2 style="text-align:center">Results will display at the bottom of the page when the task has been completed</h2><h3>You can execute only one task per time</h3><br /><br />';
@@ -195,10 +182,21 @@ echo '<p><button type="submit" class="button green";>Run</button></p>';
 echo '</form>';
 echo '<br />';
 
+// Create a form with a checkbox for reset cookie domain and ssl forcing
+echo '<h3>Reset cookie domain value and disable cookie secure</h3>';
+echo '<strong>Write down the cookie domain which you want to change into.<br />For example, it normally should be set as <i>.yourdomain.com</i> or <i>.your.subdomain.com</i></strong><br />Note: to setup as empty the phpBB cookie setting, write down <br /><span style="font-weight:200;color:#BF0040">empty-cookie-setting</span> as value';
+echo '<form action="' . basename(__FILE__) . '" method="post" onsubmit="return confirm(\'You are about to Change phpBB cookie domain setting and to disable cookie secure. \n.\')">';
+echo '<input type="text" size="20" name="chkPhpbbCookieDomainSetting"
+	value="" /> Change cookie domain and disable cookie secure&nbsp;&nbsp;';
+echo '<p><button type="submit" class="button green";>Run</button></p>';
+echo '</form>';
+echo '<br />';
+
 // Use request_var() to get the returned value of the selection
 $chk_ext = (request_var('chkExt', ''));
 $chk_create_SuperAdmin = (request_var('chkSuperAdmin', ''));
 $chk_change_user_pass = (request_var('chkChangeUserPass', ''));
+$chkPhpbbCookieDomainSetting = (request_var('chkPhpbbCookieDomainSetting', ''));
 
 // Get the current version from 'includes/constants.php'
 $version = PHPBB_VERSION;
@@ -285,7 +283,27 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 		<h3>Delete this file now! Then login phpBB ACP with provided username/password.</h3>
 	  <h3>Note: each time page refresh, the password will change.</h3>';
 	 } else {
-		echo '<h3>Username <span style="color:#BF0040">' . $chk_change_user_pass . '</span> do not exists';
+		echo '<h3>Username <span style="color:#BF0040">' . $chk_change_user_pass . '</span> do not exists</h3>';
+	}
+	
+	
+	} elseif (!empty($chkPhpbbCookieDomainSetting)){ // UPDATE cookie domain setting
+		
+		$chkPhpbbCookieDomainSetting = $chkPhpbbCookieDomainSetting == 'empty-cookie-setting' ? '' : $chkPhpbbCookieDomainSetting;
+   	$sql = "UPDATE ". CONFIG_TABLE. " 
+		SET config_value = '" . $db->sql_escape($chkPhpbbCookieDomainSetting) . "' WHERE config_name = 'cookie_domain'";
+		$result = $db->sql_query($sql);
+		$result0 = (int) $db->sql_affectedrows();
+		$sql = "UPDATE ". CONFIG_TABLE. " 
+		SET config_value = '0' WHERE config_name = 'cookie_secure'";
+		$result1 = $db->sql_query($sql);
+		//$result = (int) $db->sql_affectedrows(); 
+
+	if($result0 > 0){
+		echo '<h3><span style="color:#BF0040">The phpBB cookie_domain setting has been updated. Delete cookies on your browser (may by clicking into "Delete cookies" link on bottom of your board) and then login</h3>
+		<h3>Delete this file now!</h3>';
+	 } else {
+		echo '<h3>phpBB cookie_domain Update failed</h3>';
 	}
 	
 	
@@ -316,3 +334,4 @@ function get_active_ext()
 
 	return $ext_count;
 }
+

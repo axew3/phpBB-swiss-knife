@@ -290,7 +290,7 @@ if (phpbb_version_compare($version, '3.2.0', '>='))
 	} elseif (!empty($chkPhpbbCookieDomainSetting)){ // UPDATE cookie domain setting
 		
 		$chkPhpbbCookieDomainSetting = trim($chkPhpbbCookieDomainSetting) == 'empty-cookie-setting' ? '' : $chkPhpbbCookieDomainSetting;
-   	$sql = "UPDATE ". CONFIG_TABLE. " 
+   	        $sql = "UPDATE ". CONFIG_TABLE. " 
 		SET config_value = '" . $db->sql_escape($chkPhpbbCookieDomainSetting) . "' WHERE config_name = 'cookie_domain'";
 		$result = $db->sql_query($sql);
 		$result0 = (int) $db->sql_affectedrows();

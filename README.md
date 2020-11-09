@@ -24,7 +24,7 @@ Remove this file when finished: leaving this file in place, expose your phpBB bo
  
  Point your browser to i.e.:
  
- www.mydomain.com/phpBB3/phpbb_swiss_knife.php
+ www.yourdomainxxx.com/phpBB3/phpbb_swiss_knife.php
  
  or to /mySecretFile.php (or whatever you renamed it)
  
